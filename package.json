@@ -1,0 +1,41 @@
+{
+  "name": "ako-indexeddb-orm",
+  "version": "1.0.0",
+  "description": "An Equvalent of Entity Framework for Javascript Indexed DataBase",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack & set MIN=1 & webpack && cls && echo All Done! && echo Press Any Key To End Conversation ... && pause>nul"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhad-rad/ako-indexeddb-orm.git"
+  },
+  "keywords": [
+    "indexeddb",
+    "orm",
+    "entity",
+    "javascript",
+    "js",
+    "indexed-db"
+  ],
+  "files": [
+    "/src",
+    "/dist"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.4",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/runtime": "^7.15.4",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "author": "Farhad Rad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farhad-rad/ako-indexeddb-orm/issues"
+  },
+  "homepage": "https://github.com/farhad-rad/ako-indexeddb-orm#readme",
+  "dependencies": {}
+}
