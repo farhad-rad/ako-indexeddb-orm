@@ -8,13 +8,13 @@ let webpack = require('webpack'),
         '\n' +
         pkg.name + ' -  ' + pkg.version + '\n' +
         pkg.author + ` ${["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ].find((x, i) => i == new Date().getMonth())} ${new Date().getFullYear()}`+ '\n' +
+            "July", "August", "September", "October", "November", "December"
+        ].find((x, i) => i == new Date().getMonth())} ${new Date().getFullYear()}` + '\n' +
         pkg.contributors.map(x => `${x.name} <${x.email}>`).join('\n') + '\n' +
         pkg.homepage + '\n' +
         'Under ' + pkg.license + ' license ' + '\n' +
         '\n',
-    fileName = pkg.name.replace(/@/g,'').replace(/\//g,'-') + ".js",
+    fileName = pkg.name.replace(/@/g, '').replace(/\//g, '-') + ".js",
     plugins = [
         new webpack.BannerPlugin(banner),
         new webpack.DefinePlugin({
@@ -23,16 +23,19 @@ let webpack = require('webpack'),
     ];
 
 if (minimize) {
-    plugins.push(new webpack.optimize.UglifyJsPlugin());
-    fileName = pkg.name.replace(/@/g,'').replace(/\//g,'-') + ".min.js";
+    //plugins.push(new webpack.optimize.UglifyJsPlugin());
+    fileName = pkg.name.replace(/@/g, '').replace(/\//g, '-') + ".min.js";
 }
 module.exports = {
-    entry: ["./src/initializer.js"], // string | object | array
+    entry: ["./src/index.js"], // string | object | array
     output: {
-        library: "AkoPrototypes",
+        library: "AkoIndexedDbOrm",
         libraryTarget: "umd2",
         path: path.resolve(__dirname, "dist"), // string
         filename: fileName // string
+    },
+    optimization: {
+        minimize
     },
     module: {
         rules: [
@@ -46,9 +49,9 @@ module.exports = {
                 ],
                 use: {
                     loader: 'babel-loader',
-                    options: {
+                    /*options: {
                         presets: ['es2015']
-                    }
+                    }*/
                 }
             }
         ]

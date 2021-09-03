@@ -31,7 +31,13 @@
     "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0"
   },
-  "author": "Farhad Rad",
+  "author": "Ako Team",
+  "contributors": [
+    {
+      "name": "Farhad Rad",
+      "email": "farhad.rad.official@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/farhad-rad/ako-indexeddb-orm/issues"

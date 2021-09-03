@@ -1,5 +1,6 @@
 # Logs
 logs
+dist
 
 # Dependency directories
 node_modules/
