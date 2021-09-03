@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-Test Hello World
+Let Us Begin
 
 You can use the [editor on GitHub](https://github.com/farhad-rad/ako-indexeddb-orm/edit/docs/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
