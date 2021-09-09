@@ -16,7 +16,7 @@ export default class IDatabaseContexts {
         return found.length > 0;
     }
     static addContext(instance) {
-        const { schema, dbName } = instance.dbPath;
+        const { schema, dbName } = instance.__path;
         if (IDatabaseContexts.exists(dbName, schema)) throw new Error(`There is Already a DBContext Exists Inside Current Enviroment with the Same Name and Schema. You Can Access That by Calling 'IDatabaseContexts.getContext(databaseName, schema)'`);
         existingDbContexts.push({ dbName: dbName, schema: schema, connected: false, instance });
     }
@@ -25,18 +25,18 @@ export default class IDatabaseContexts {
         return existingDbContexts.find(x => x.schema == schema && x.dbName == dbName).instance;
     }
     static destroyContext(instance) {
-        const { schema, dbName } = instance.dbPath;
+        const { schema, dbName } = instance.__path;
         if (!IDatabaseContexts.exists(dbName, schema)) throw new Error(`There is no Database Context Available With Name <${((schema && `${schema}.${dbName}`) || dbName)}>`);
         existingDbContexts = existingDbContexts.filter(x => x.schema != schema || x.dbName != dbName);
     }
     static setConnectionState(instance, state) {
-        const { schema, dbName } = instance.dbPath;
+        const { schema, dbName } = instance.__path;
         if (!IDatabaseContexts.exists(dbName, schema)) throw new Error(`There is no Database Context Available With Name <${((schema && `${schema}.${dbName}`) || dbName)}>`);
         const index = existingDbContexts.findIndex(x => x.schema == schema && x.dbName == dbName);
         existingDbContexts[index].connected = state;
     }
     static updateContext(instance) {
-        const { schema, dbName } = instance.dbPath;
+        const { schema, dbName } = instance.__path;
         if (!IDatabaseContexts.exists(dbName, schema)) throw new Error(`There is no Database Context Available With Name <${((schema && `${schema}.${dbName}`) || dbName)}>`);
         const index = existingDbContexts.findIndex(x => x.schema == schema && x.dbName == dbName);
         existingDbContexts[index].instance = instance;
